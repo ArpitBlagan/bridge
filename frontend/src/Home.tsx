@@ -32,6 +32,12 @@ const Home = () => {
   }, [page]);
   return (
     <div className=" my-2">
+      <div className="flex items-center justify-center h-[20dvh]">
+        <p className="text-4xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+          Introducing our innovative app powered by XY Finance, designed to
+          simplify the process of swapping one token to other effortlessly.
+        </p>
+      </div>
       <Form />
       <p className="text-3xl mt-5 bg-gradient-to-r from-gray-600 via-purple-500 to-red-400 inline-block text-transparent bg-clip-text">
         Tokens

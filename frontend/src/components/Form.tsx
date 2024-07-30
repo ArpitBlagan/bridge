@@ -297,7 +297,7 @@ const Form = () => {
                       <p>No token for the search text ${searchText}</p>
                     </div>
                   ) : (
-                    <div className="h-[50dvh] overflow-y-scroll grid md:grid-cols-2 gap-3">
+                    <div className="h-[40dvh] overflow-y-scroll grid md:grid-cols-2 gap-3">
                       {tokens.map((ele, index) => {
                         return (
                           <div
