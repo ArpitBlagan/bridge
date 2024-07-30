@@ -78,7 +78,7 @@ const Form = () => {
     }
     try {
       const res = await axios.get(
-        `${API_URLS.BASE_URL}${API_URLS.BUILD}?srcChainId=${from.chainId}&srcQuoteTokenAddress=${from.address}&srcQuoteTokenAmount=${am}&dstChainId=${to.chainId}&dstQuoteTokenAddress=${to.address}&receiver=${address}`
+        `${API_URLS.BASE_URL}${API_URLS.BUILD}?srcChainId=${from.chainId}&srcQuoteTokenAddress=${from.address}&srcQuoteTokenAmount=${am}&dstChainId=${to.chainId}&dstQuoteTokenAddress=${to.address}&receiver=${address}`,
       );
       console.log(res.data);
       setBuildLoading(false);
@@ -87,7 +87,7 @@ const Form = () => {
       console.log(err);
       setBuildLoading(false);
       toast.error(
-        "something went wrong while building transaction please try again later :("
+        "something went wrong while building transaction please try again later :(",
       );
     }
   };
@@ -100,7 +100,7 @@ const Form = () => {
         const res = await axios.get(
           `${API_URLS.BASE_URL}${
             API_URLS.SEARCH
-          }?search=${val.toLocaleUpperCase()}`
+          }?search=${val.toLocaleUpperCase()}`,
         );
         setTokens(res.data);
       } catch (err) {
@@ -151,7 +151,7 @@ const Form = () => {
     } catch (err) {
       setQuoteLoading(false);
       toast.error(
-        "something went wrong or service unavaliable whilte getting quote..."
+        "something went wrong or service unavaliable whilte getting quote...",
       );
     }
   };
@@ -437,7 +437,7 @@ const Form = () => {
                                             {JSON.stringify(
                                               buildInfo.route.tx,
                                               null,
-                                              10
+                                              10,
                                             )}
                                           </pre>
                                         )}

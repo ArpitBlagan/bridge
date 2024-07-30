@@ -17,7 +17,7 @@ const Home = () => {
       try {
         //fetching tokens in 50 count from backend
         const res = await axios.get(
-          `${API_URLS.BASE_URL}${API_URLS.GETOKENS}?page=${page}`
+          `${API_URLS.BASE_URL}${API_URLS.GETOKENS}?page=${page}`,
         );
         console.log(res.data.tokens);
         setData(res.data.tokens);
