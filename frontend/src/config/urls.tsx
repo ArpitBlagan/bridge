@@ -1,5 +1,5 @@
 const API_URLS = {
-  BASE_URL: "http://localhost:9000/api",
+  BASE_URL: "https://bridge-v5v3.onrender.com/api",
   GETOKENS: "/getTokens",
   SEARCH: "/search",
   GETQUOTE: "/getQuote",
