@@ -7,7 +7,7 @@ import { router } from "./router";
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://bridge-murex-psi.vercel.app"],
     credentials: true,
   })
 );
