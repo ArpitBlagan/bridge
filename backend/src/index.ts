@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import cookieParser from "cookie-parser";
 import { router } from "./router";
-const app = express();
+export const app = express();
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://bridge-murex-psi.vercel.app"],

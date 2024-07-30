@@ -7,7 +7,7 @@ import {
 } from "./controller/main";
 
 export const router = Router();
-
+// diff routes
 router.route("/getTokens").get(getTokens);
 router.route("/getQuote").get(getQuote);
 router.route("/buildTranx").get(buildTranx);

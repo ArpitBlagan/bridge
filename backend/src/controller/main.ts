@@ -39,7 +39,6 @@ export const getTokens = async (req: Request, res: Response) => {
       .status(200)
       .json({ tokens: arr, total: cache.data.recommendedTokens.length });
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "something went wrong" });
   }
 };
@@ -52,12 +51,11 @@ export const getQuote = async (req: Request, res: Response) => {
     dstChainId,
     dstQuoteTokenAddress,
   } = req.query;
-  console.log("cool");
   try {
+    // get the quote info
     const data = await axios.get(
       `https://aggregator-api.xy.finance/v1/quote?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1`
     );
-    console.log(data.data);
     res.status(200).json(data.data);
   } catch (err) {
     console.log(err);
@@ -76,22 +74,20 @@ export const buildTranx = async (req: Request, res: Response) => {
     dstQuoteTokenAddress,
     receiver,
   } = req.query;
-  console.log(req.query);
   try {
+    //build transaction and we need to have a valid receiver address to make it work
     const data = await axios.get(
       `https://aggregator-api.xy.finance/v1/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}`
     );
-    console.log(data.data);
     res.status(200).json(data.data);
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "something went wrong" });
   }
 };
 
 export const searchToken = async (req: Request, res: Response) => {
   const { search } = req.query;
-  console.log(search);
+  //send back the token that matches the search
   try {
     if (cache.firstTime) {
       const dd = await axios.get(
@@ -108,10 +104,8 @@ export const searchToken = async (req: Request, res: Response) => {
     const newArr = arr.filter((ele: any) => {
       return ele.name.includes(search) || ele.symbol.includes(search);
     });
-    console.log(newArr);
     res.status(200).json(newArr);
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "something went wrong" });
   }
 };
