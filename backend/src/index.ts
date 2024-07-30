@@ -9,7 +9,7 @@ app.use(
   cors({
     origin: ["http://localhost:5173", "https://bridge-murex-psi.vercel.app"],
     credentials: true,
-  })
+  }),
 );
 app.use(cookieParser());
 app.use(express.json());

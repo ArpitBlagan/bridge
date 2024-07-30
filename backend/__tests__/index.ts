@@ -22,7 +22,7 @@ describe("test our routes", () => {
     }),
     test("get quote endpoint", async () => {
       const res = await request(app).get(
-        "/api/getQuote?srcChainId=10&srcQuoteTokenAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&srcQuoteTokenAmount=1000000000000000000&dstChainId=56&dstQuoteTokenAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&slippage=1"
+        "/api/getQuote?srcChainId=10&srcQuoteTokenAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&srcQuoteTokenAmount=1000000000000000000&dstChainId=56&dstQuoteTokenAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&slippage=1",
       );
       expect(res.status).toEqual(200);
     });

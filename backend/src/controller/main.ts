@@ -26,7 +26,7 @@ export const getTokens = async (req: Request, res: Response) => {
     if (cache.firstTime || inValid(cache.et)) {
       console.log("cool");
       const dd = await axios.get(
-        "https://aggregator-api.xy.finance/v1/recommendedTokens"
+        "https://aggregator-api.xy.finance/v1/recommendedTokens",
       );
       cache["data"] = dd.data;
       cache["et"] = new Date();
@@ -54,7 +54,7 @@ export const getQuote = async (req: Request, res: Response) => {
   try {
     // get the quote info
     const data = await axios.get(
-      `https://aggregator-api.xy.finance/v1/quote?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1`
+      `https://aggregator-api.xy.finance/v1/quote?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1`,
     );
     res.status(200).json(data.data);
   } catch (err) {
@@ -77,7 +77,7 @@ export const buildTranx = async (req: Request, res: Response) => {
   try {
     //build transaction and we need to have a valid receiver address to make it work
     const data = await axios.get(
-      `https://aggregator-api.xy.finance/v1/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}`
+      `https://aggregator-api.xy.finance/v1/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}`,
     );
     res.status(200).json(data.data);
   } catch (err) {
@@ -91,7 +91,7 @@ export const searchToken = async (req: Request, res: Response) => {
   try {
     if (cache.firstTime) {
       const dd = await axios.get(
-        "https://aggregator-api.xy.finance/v1/recommendedTokens"
+        "https://aggregator-api.xy.finance/v1/recommendedTokens",
       );
       cache["data"] = dd.data;
       cache["et"] = new Date();
